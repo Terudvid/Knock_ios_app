@@ -34,7 +34,8 @@ iOSのアプリをひたすら作るリポジトリ
 
 ## Author
 
-- 追記予定
+[@tt0805](https://qiita.com/tt0805)
+[@Teru123123](https://twitter.com/Teru123123)
 
 ## License
 
