@@ -16,6 +16,8 @@
 		A398F0761FA71D46002684F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A398F0741FA71D46002684F8 /* LaunchScreen.storyboard */; };
 		A398F0811FA71D46002684F8 /* GitHubSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398F0801FA71D46002684F8 /* GitHubSearchTests.swift */; };
 		A398F08C1FA71D46002684F8 /* GitHubSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398F08B1FA71D46002684F8 /* GitHubSearchUITests.swift */; };
+		A398F09A1FA72764002684F8 /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398F0991FA72764002684F8 /* GitHubApi.swift */; };
+		A398F09B1FA72764002684F8 /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398F0991FA72764002684F8 /* GitHubApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 		A398F0871FA71D46002684F8 /* GitHubSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A398F08B1FA71D46002684F8 /* GitHubSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchUITests.swift; sourceTree = "<group>"; };
 		A398F08D1FA71D46002684F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A398F0991FA72764002684F8 /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,7 @@
 				A398F0661FA71D46002684F8 /* AppDelegate.swift */,
 				A398F06B1FA71D46002684F8 /* MasterViewController.swift */,
 				A398F06D1FA71D46002684F8 /* DetailViewController.swift */,
+				A398F0991FA72764002684F8 /* GitHubApi.swift */,
 				A398F06F1FA71D46002684F8 /* Main.storyboard */,
 				A398F0721FA71D46002684F8 /* Assets.xcassets */,
 				A398F0741FA71D46002684F8 /* LaunchScreen.storyboard */,
@@ -268,6 +272,7 @@
 				A398F06A1FA71D46002684F8 /* GitHubSearch.xcdatamodeld in Sources */,
 				A398F0671FA71D46002684F8 /* AppDelegate.swift in Sources */,
 				A398F06C1FA71D46002684F8 /* MasterViewController.swift in Sources */,
+				A398F09A1FA72764002684F8 /* GitHubApi.swift in Sources */,
 				A398F06E1FA71D46002684F8 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A398F0811FA71D46002684F8 /* GitHubSearchTests.swift in Sources */,
+				A398F09B1FA72764002684F8 /* GitHubApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

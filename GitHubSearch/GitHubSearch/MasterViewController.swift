@@ -14,18 +14,24 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        // レフトボタンの作成
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        
         navigationItem.rightBarButtonItem = addButton
+        
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        let githubapi = GitHubApi();
+        githubapi.getGitHubInfo(url: "http://www.data.go.jp/data/feeds/custom.atom?q=")
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +48,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func insertNewObject(_ sender: Any) {
         let context = self.fetchedResultsController.managedObjectContext
         let newEvent = Event(context: context)
+        print("insertNowObject")
              
         // If appropriate, configure the new managed object.
         newEvent.timestamp = Date()
@@ -60,15 +67,19 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showDetail" {
+            
             if let indexPath = tableView.indexPathForSelectedRow {
-            let object = fetchedResultsController.object(at: indexPath)
+                let object = fetchedResultsController.object(at: indexPath)
+                
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+        
     }
 
     // MARK: - Table View
@@ -95,6 +106,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             let context = fetchedResultsController.managedObjectContext
             context.delete(fetchedResultsController.object(at: indexPath))
@@ -124,7 +136,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let fetchRequest: NSFetchRequest<Event> = Event.fetchRequest()
         
         // Set the batch size to a suitable number.
-        fetchRequest.fetchBatchSize = 20
+        fetchRequest.fetchBatchSize = 30
         
         // Edit the sort key as appropriate.
         let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
